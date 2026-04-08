@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Glass UI Template · Red</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #1e0a0f 0%, #22121a 100%);
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', monospace;
+            min-height: 100vh;
+            padding: 1.5rem;
+        }
+
+        .glass-card {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(45, 18, 25, 0.75);
+            backdrop-filter: blur(14px);
+            border-radius: 2.5rem;
+            border: 1px solid rgba(255, 72, 72, 0.25);
+            box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 1.75rem 2rem;
+            background: rgba(34, 12, 18, 0.7);
+            border-bottom: 1px solid rgba(248, 56, 56, 0.3);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-left h1 {
+            font-size: 1.9rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #ffc0c0, #f63b3b);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .sub {
+            color: #d59b9b;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            border-left: 3px solid #f63b3b;
+            padding-left: 0.85rem;
+        }
+
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid #4a2626;
+            gap: 0.25rem;
+            padding: 0 1.5rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #e08c8c;
+            cursor: pointer;
+            transition: all 0.2s;
+            border-bottom: 2px solid transparent;
+            font-family: inherit;
+        }
+
+        .tab-btn:hover {
+            color: white;
+            background: rgba(246, 59, 59, 0.1);
+        }
+
+        .tab-btn.active {
+            color: #f63b3b;
+            border-bottom-color: #f63b3b;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        .btn-primary {
+            background: linear-gradient(100deg, #eb2525, #af1e1e);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 2rem;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.1s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: #3b1e1e;
+            border: 1px solid #4a2626;
+            padding: 0.6rem 1.5rem;
+            border-radius: 2rem;
+            color: #e08c8c;
+            cursor: pointer;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: rgba(34, 12, 18, 0.6);
+            border: 1px solid #4a2626;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            border-color: #f63b3b;
+            transform: translateY(-3px);
+        }
+
+        .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .input-group label {
+            display: block;
+            color: #d59b9b;
+            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            background: #221212;
+            border: 1px solid #4a2626;
+            border-radius: 1rem;
+            padding: 0.8rem 1rem;
+            color: white;
+            outline: none;
+            font-family: inherit;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #f63b3b;
+        }
+
+        footer {
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #884c4c;
+            border-top: 1px solid rgba(184, 72, 72, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .text-center { text-align: center; }
+        .mt-2 { margin-top: 1rem; }
+        .mb-2 { margin-bottom: 1rem; }
+        .flex { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .gap-2 { gap: 1rem; }
+
+        @media (max-width: 700px) {
+            body { padding: 0.8rem; }
+            .header { flex-direction: column; align-items: start; }
+            .tab-btn { padding: 0.7rem 1rem; }
+            .tab-content { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="glass-card">
+    <div class="header">
+        <div class="header-left">
+            <h1>7swazys · Template</h1>
+            <div class="sub">glass ui template</div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="home">Home</button>
+        <button class="tab-btn" data-tab="tools">Tools</button>
+        <button class="tab-btn" data-tab="settings">Settings</button>
+    </div>
+
+    <div id="homeTab" class="tab-content active">
+        <div class="card-grid">
+            <div class="card">
+                <h3 style="color:#ffc0c0; margin-bottom: 0.5rem;">Placeholder 1</h3>
+                <p style="color:#d59b9b; font-size: 0.8rem;">Placeholder text 1</p>
+                <button class="btn-primary mt-2" onclick="alert('Button 1 clicked')">Button</button>
+            </div>
+            <div class="card">
+                <h3 style="color:#ffc0c0; margin-bottom: 0.5rem;">Placeholder 2</h3>
+                <p style="color:#d59b9b; font-size: 0.8rem;">Placeholder text 2</p>
+                <button class="btn-primary mt-2" onclick="alert('Button 2 clicked')">Button</button>
+            </div>
+            <div class="card">
+                <h3 style="color:#ffc0c0; margin-bottom: 0.5rem;">Placeholder 3</h3>
+                <p style="color:#d59b9b; font-size: 0.8rem;">Placeholder text 3</p>
+                <button class="btn-primary mt-2" onclick="alert('Button 3 clicked')">Button</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toolsTab" class="tab-content">
+        <div class="input-group">
+            <label>Label text</label>
+            <input type="text" id="exampleInput" placeholder="Placeholder text">
+        </div>
+        <div class="flex">
+            <button class="btn-primary" onclick="alert('Input: ' + document.getElementById('exampleInput').value)">Submit</button>
+            <button class="btn-secondary" onclick="document.getElementById('exampleInput').value = ''">Clear</button>
+        </div>
+    </div>
+
+    <div id="settingsTab" class="tab-content">
+        <div class="card">
+            <h3 style="color:#ffc0c0; margin-bottom: 1rem;">Settings</h3>
+            <div class="input-group">
+                <label>Theme preference</label>
+                <select id="themeSelect">
+                    <option value="dark">Option 1</option>
+                    <option value="light">Option 2</option>
+                </select>
+            </div>
+            <button class="btn-primary" onclick="alert('Saved')">Save</button>
+        </div>
+    </div>
+
+    <footer>
+        Footer text
+    </footer>
+</div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const homeTab = document.getElementById('homeTab');
+    const toolsTab = document.getElementById('toolsTab');
+    const settingsTab = document.getElementById('settingsTab');
+
+    function switchTab(tabId) {
+        homeTab.classList.remove('active');
+        toolsTab.classList.remove('active');
+        settingsTab.classList.remove('active');
+
+        if (tabId === 'home') homeTab.classList.add('active');
+        else if (tabId === 'tools') toolsTab.classList.add('active');
+        else if (tabId === 'settings') settingsTab.classList.add('active');
+
+        tabs.forEach(btn => {
+            const btnTab = btn.getAttribute('data-tab');
+            if (btnTab === tabId) btn.classList.add('active');
+            else btn.classList.remove('active');
+        });
+    }
+
+    tabs.forEach(btn => {
+        btn.addEventListener('click', () => {
+            switchTab(btn.getAttribute('data-tab'));
+        });
+    });
+</script>
+
+</body>
+</html>
