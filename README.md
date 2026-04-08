@@ -1,14 +1,12 @@
-# 7swazy UI - Glass Morphic Template
+# 7swazy
 
-A beautiful glass morphic UI template available in multiple color themes.
+## themes
 
-## Color Themes Available
-
-| Theme | Primary Color | Best For |
+| theme | primary color | best for |
 | :--- | :--- | :--- |
-| Blue (Original) | `#3b82f6` | Default, professional |
-| Red | `#f63b3b` | Bold, attention-grabbing |
-| Purple | `#8b38f8` | Creative, modern |
+| blue | `#3b82f6` | Default, professional |
+| red  | `#f63b3b` | Bold, attention-grabbing |
+| purple | `#8b38f8` | Creative, modern |
 
 ## html structure
 
@@ -37,7 +35,7 @@ const mytabTab = document.getElementById('mytabTab');
 
 ## css classes you can use
 
-| Class | Purpose |
+| class | purpose |
 | :--- | :--- |
 | `.btn-primary` | Gradient button |
 | `.btn-secondary` | Dark outline button |
